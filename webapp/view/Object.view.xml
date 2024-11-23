@@ -1,0 +1,435 @@
+<mvc:View controllerName="demo.controller.Object" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:microchart="sap.suite.ui.microchart" xmlns:unified="sap.ui.unified"
+	xmlns:semantic="sap.m.semantic" xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data" xmlns:footerbar="sap.ushell.ui.footerbar">
+	<semantic:FullscreenPage id="page" navButtonPress="onNavBack" showNavButton="true" title="{i18n>objectTitle}" busy="{objectView>/busy}"
+		busyIndicatorDelay="{objectView>/delay}">
+		<semantic:content>
+			<Button text="Goto Third View" type="Accept" width="200px" press="gotothirdviewEH"/>
+			<Button text="Goto Fourth View" type="Reject" width="200px" press="gotofourthviewEH"/>
+			<ObjectHeader id="objectHeader" title="{Firstname}" number="{ path: 'Salary', formatter: '.formatter.numberUnit' }" numberUnit="{Country}"></ObjectHeader>
+			<form:SimpleForm>
+				<Label text="Enter Firstname"/>
+				<Input suggestionRows="{/EMPSet}" width="550px" showSuggestion="true">
+					<suggestionColumns>
+						<Column>
+							<Label text="Firstname"/>
+						</Column>
+						<Column>
+							<Label text="Userid"/>
+						</Column>
+						<Column>
+							<Label text="Emailid"/>
+						</Column>
+						<Column>
+							<Label text="Country"/>
+						</Column>
+						<Column>
+							<Label text="Salary"/>
+						</Column>
+					</suggestionColumns>
+					<suggestionRows>
+						<ColumnListItem>
+							<Label text="{Firstname}"/>
+							<Label text="{Userid}"/>
+							<Label text="{Emailid}"/>
+							<Label text="{Country}"/>
+							<Label text="{Salary}"/>
+						</ColumnListItem>
+					</suggestionRows>
+				</Input>
+			</form:SimpleForm>
+			<IconTabBar>
+				<items>
+					<IconTabFilter text="Form" iconColor="Positive" icon="sap-icon://doctor">
+						<content>
+							<form:SimpleForm layout="ResponsiveGridLayout">
+								<Label text="About Course" textDirection="RTL" design="Bold"/>
+								<Text text="{i18n>coursekey}"/>
+								<Label text="WebSite Link" textDirection="RTL" design="Bold"/>
+								<Link text="Google WebSite" href="http://www.google.com" target="_blank" width="250px"/>
+								<Label text="Company Logo" textDirection="RTL" design="Bold"/>
+								<Image src="/image1.png" height="50px" width="50px"/>
+								<Label text="{i18n>useridkey}" textDirection="RTL" design="Bold"/>
+								<Input value="" width="250px"/>
+								<Label text="{i18n>fnamekey}" textDirection="RTL" design="Bold"/>
+								<Input value="" width="250px"/>
+								<Label text="{i18n>lnamekey}" textDirection="RTL" design="Bold"/>
+								<Input value="" width="250px"/>
+								<Label text="{i18n>emailidkey}" textDirection="RTL" design="Bold"/>
+								<Input value="" width="250px"/>
+								<Label text="{i18n>countrykey}" textDirection="RTL" design="Bold"/>
+								<Input value="" width="250px"/>
+								<Label text="{i18n>salarykey}" textDirection="RTL" design="Bold"/>
+								<Input value="" width="250px"/>
+								<Label text="Enter Mobile Number" textDirection="RTL" design="Bold"/>
+								<Input value="" width="250px"/>
+								<Label text="Enter Password" textDirection="RTL" design="Bold"/>
+								<Input value="" width="250px" type="Password"/>
+								<Label text="Are You Learning Fiori" textDirection="RTL" design="Bold"/>
+								<CheckBox selected="false"/>
+								<Label text="Are You Permanent EMP" textDirection="RTL" design="Bold"/>
+								<Switch state="true" customTextOn="YES" customTextOff="NO"/>
+								<Label text="Select Rating" textDirection="RTL" design="Bold"/>
+								<RatingIndicator value="3" maxValue="5"/>
+								<Label text="Select Percentage" textDirection="RTL" design="Bold"/>
+								<Slider value="80" min="0" max="100" width="250px"/>
+								<Label text="Select Percentage" textDirection="RTL" design="Bold"/>
+								<ProgressIndicator percentValue="80" state="Success" width="250px"/>
+								<Label text="Select Date of Joining" textDirection="RTL" design="Bold"/>
+								<DatePicker value="" width="250px"/>
+								<Label text="Select Time of Joining" textDirection="RTL" design="Bold"/>
+								<TimePicker value="" width="250px"/>
+								<Label text="Select Date Time of Joining" textDirection="RTL" design="Bold"/>
+								<DateTimeInput value="" type="DateTime" width="250px"/>
+								<Label text="Enter Comments" textDirection="RTL" design="Bold"/>
+								<TextArea value="" rows="5" cols="40" width="250px"/>
+								<Label text="Select Firstname" textDirection="RTL" design="Bold"/>
+								<Select items="{/EMPSet}" width="250px">
+									<core:Item key="{Userid}" text="{Firstname}"/>
+								</Select>
+								<Label text="Select Firstname" textDirection="RTL" design="Bold"/>
+								<ComboBox items="{/EMPSet}" width="250px">
+									<core:Item key="{Userid}" text="{Firstname}"/>
+								</ComboBox>
+								<Label text="Select Firstname" textDirection="RTL" design="Bold"/>
+								<MultiComboBox items="{/EMPSet}" width="250px">
+									<core:Item key="{Userid}" text="{Firstname}"/>
+								</MultiComboBox>
+								<Label text="Select Firstname" textDirection="RTL" design="Bold"/>
+								<MultiInput suggestionItems="{/EMPSet}" width="250px">
+									<core:Item key="{Userid}" text="{Firstname}"/>
+								</MultiInput>
+								<Label text="Select Firstname" textDirection="RTL" design="Bold"/>
+								<RadioButtonGroup buttons="{/EMPSet}" columns="9">
+									<RadioButton text="{Firstname}"/>
+								</RadioButtonGroup>
+								<Label text="Select Firstname" textDirection="RTL" design="Bold"/>
+								<Tokenizer tokens="{/EMPSet}">
+									<Token text="{Firstname}"/>
+								</Tokenizer>
+								<Label text="Select Firstname" textDirection="RTL" design="Bold"/>
+								<Breadcrumbs links="{/EMPSet}">
+									<Link text="{Firstname}" href="http://www.google.com"/>
+								</Breadcrumbs>
+							</form:SimpleForm>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="List" iconColor="Negative" icon="sap-icon://process">
+						<content>
+							<List items="{/EMPSet}" width="550px" growing="true" growingThreshold="10" mode="SingleSelectLeft" selectionChange="capturerecordEH">
+								<StandardListItem title="{Userid}" description="{Firstname} {Lastname}" info="{Emailid}" counter="{Salary}"
+									infoState="{path:'Salary',formatter:'.formatter.INFOSTATEFF'}" icon="{path:'Salary',formatter:'.formatter.ICONFF'}"/>
+							</List>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="Table" iconColor="Neutral" icon="sap-icon://retail-store">
+						<content>
+							<form:SimpleForm layout="ResponsiveGridLayout">
+								<Label text="Enter Country" design="Bold"/>
+								<Input id="mycountry" value="" width="250px"/>
+								<Label text="Enter Salary" design="Bold"/>
+								<Input id="mysalary" value="" width="250px"/>
+								<Button text="Get Data" type="Accept" width="250px" press="getdataEH"/>
+							</form:SimpleForm>
+							<Table items="{/EMPSet}" id="mytable" fixedLayout="false" growing="true" growingThreshold="15" mode="SingleSelectLeft"
+								selectionChange="capturerecordEH">
+								<columns>
+									<Column>
+										<Label text="{i18n>useridcolkey}" design="Bold"/>
+									</Column>
+									<Column>
+										<Label text="{i18n>fullnamecolkey}" design="Bold"/>
+									</Column>
+									<Column>
+										<Label text="{i18n>emailidcolkey}" design="Bold"/>
+									</Column>
+									<Column>
+										<Label text="{i18n>countrycolkey}" design="Bold"/>
+									</Column>
+									<Column>
+										<Label text="Salary" design="Bold"/>
+									</Column>
+									<Column>
+										<Label text="Status" design="Bold"/>
+									</Column>
+									<Column>
+										<Label text="Img" design="Bold"/>
+									</Column>
+									<Column>
+										<Label text="CB" design="Bold"/>
+									</Column>
+									<Column>
+										<Label text="Switch" design="Bold"/>
+									</Column>
+									<Column>
+										<Label text="Rating" design="Bold"/>
+									</Column>
+									<Column>
+										<Label text="Progress" design="Bold"/>
+									</Column>
+									<Column>
+										<Label text="Slider" design="Bold"/>
+									</Column>
+									<Column>
+										<Label text="Cur" design="Bold"/>
+									</Column>
+									<Column>
+										<Label text="Annual" design="Bold"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Button text="{Userid}" type="{path:'Salary',formatter:'.formatter.BUTTONTYPEFF'}"/>
+											<Input value="{Firstname} {Lastname}" width="160px"/>
+											<Link text="{Emailid}" width="140px"/>
+											<Text text="{Country}"/>
+											<ObjectNumber number="{Salary}" state="{path:'Salary',formatter:'.formatter.OBJECTNUMBERFF'}"/>
+											<Text text="{path:'Salary',formatter:'.formatter.STATUSFF'}" width="75px"/>
+											<Image src="{path:'Salary',formatter:'.formatter.IMAGEFF'}" width="25px" height="25px"/>
+											<CheckBox selected="{path:'Salary',formatter:'.formatter.CHECKBOXFF'}"/>
+											<Switch state="{path:'Salary',formatter:'.formatter.SWITCHFF'}"/>
+											<RatingIndicator value="{path:'Salary',formatter:'.formatter.RATINGFF'}"/>
+											<ProgressIndicator percentValue="{path:'Salary',formatter:'.formatter.PROGRESSFF'}"
+												state="{path:'Salary',formatter:'.formatter.PROGRESSSTATEFF'}"/>
+											<Slider value="{path:'Salary',formatter:'.formatter.SLIDERFF'}" width="95px"/>
+											<Text text="{path:'Country',formatter:'.formatter.CURRENCYFF'}" width="35px"/>
+											<Text text="{path:'Salary',formatter:'.formatter.ANNUALFF'}" width="70px"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="MicroChart" iconColor="Critical" icon="sap-icon://world">
+						<content>
+							<microchart:ComparisonMicroChart data="{/EMPSet}" size="M" width="400px">
+								<microchart:data>
+									<microchart:ComparisonMicroChartData title="{Firstname}" value="{Salary}" color="{path:'Salary',formatter:'.formatter.COLORFF'}"/>
+								</microchart:data>
+							</microchart:ComparisonMicroChart>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="SimpleForm with Submit" iconColor="Default" icon="sap-icon://activity-items">
+						<form:SimpleForm layout="ResponsiveGridLayout">
+							<Label text="Company Logo" textDirection="RTL" design="Bold"/>
+							<Image id="image" src="/image1.png" height="50px" width="50px" visible="false"/>
+							<Label text="Enter Userid" textDirection="RTL" design="Bold"/>
+							<Input id="userid" value="" width="250px" enabled="false"/>
+							<Label text="Enter Firstname" textDirection="RTL" design="Bold"/>
+							<Input id="fname" value="" width="250px" enabled="false"/>
+							<Label text="Enter Lastname" textDirection="RTL" design="Bold"/>
+							<Input id="lname" value="" width="250px" enabled="false"/>
+							<Label text="Enter Emailid" textDirection="RTL" design="Bold"/>
+							<Input id="emailid" value="" width="250px" enabled="false"/>
+							<Label text="Enter Country" textDirection="RTL" design="Bold"/>
+							<Input id="country" value="" width="250px" enabled="false"/>
+							<Label text="Enter Salary" textDirection="RTL" design="Bold"/>
+							<Input id="salary" value="" width="250px" enabled="false"/>
+							<Label text="Enter Mobile Number" textDirection="RTL" design="Bold"/>
+							<Input id="mobileno" value="" width="250px" enabled="false"/>
+							<Label text="Enter Password" textDirection="RTL" design="Bold"/>
+							<Input id="password" value="" width="250px" type="Password" enabled="false"/>
+							<Label text="Are You Learning Fiori" textDirection="RTL" design="Bold"/>
+							<CheckBox id="checkbox" selected="false"/>
+							<Label text="Are You Permanent Emp" textDirection="RTL" design="Bold"/>
+							<Switch id="switch" state="true" customTextOn="YES" customTextOff="NO"/>
+							<Label text="Select Rating" textDirection="RTL" design="Bold"/>
+							<RatingIndicator id="rating" value="4" maxValue="5"/>
+							<Label text="Select Percentage" textDirection="RTL" design="Bold"/>
+							<Slider id="slider" value="80" min="0" max="100" width="250px"/>
+							<Label text="Display Percentage" textDirection="RTL" design="Bold"/>
+							<ProgressIndicator id="progress" percentValue="80" state="Success" width="250px"/>
+							<Label text="Select Date" textDirection="RTL" design="Bold"/>
+							<DatePicker id="datepicker" value="" width="250px"/>
+							<Label text="Select Time" textDirection="RTL" design="Bold"/>
+							<TimePicker id="timepicker" value="" width="250px"/>
+							<Label text="Enter Comments" textDirection="RTL" design="Bold"/>
+							<TextArea id="textarea" value="" rows="5" cols="40" width="250px"/>
+							<Label text="Select Country" textDirection="RTL" design="Bold"/>
+							<Select id="dropdown" width="250px">
+								<items>
+									<core:Item key="IN" text="INDIA"/>
+									<core:Item key="CH" text="CHINA"/>
+									<core:Item key="US" text="USA"/>
+									<core:Item key="IT" text="ITALY"/>
+									<core:Item key="UK" text="UK"/>
+									<core:Item key="IR" text="IRAN"/>
+									<core:Item key="CA" text="CANADA"/>
+								</items>
+							</Select>
+							<Label text="Select Country" textDirection="RTL" design="Bold"/>
+							<ComboBox id="combobox" width="250px">
+								<items>
+									<core:Item key="IN" text="INDIA"/>
+									<core:Item key="CH" text="CHINA"/>
+									<core:Item key="US" text="USA"/>
+									<core:Item key="IT" text="ITALY"/>
+									<core:Item key="UK" text="UK"/>
+									<core:Item key="IR" text="IRAN"/>
+									<core:Item key="CA" text="CANADA"/>
+								</items>
+							</ComboBox>
+							<Label text="Select Course" textDirection="RTL" design="Bold"/>
+							<RadioButtonGroup id="radiobtgroup" columns="1">
+								<buttons>
+									<RadioButton text="SAP Ui5"/>
+									<RadioButton text="SAP Fiori"/>
+									<RadioButton text="SAP OData"/>
+									<RadioButton text="SAP ABAP"/>
+									<RadioButton text="SAP HCM"/>
+									<RadioButton text="SAP FI"/>
+									<RadioButton text="SAP CRM"/>
+								</buttons>
+							</RadioButtonGroup>
+							<Label text="Select Country" textDirection="RTL" design="Bold"/>
+							<MultiComboBox id="multicombobox" width="250px">
+								<items>
+									<core:Item key="IN" text="INDIA"/>
+									<core:Item key="CH" text="CHINA"/>
+									<core:Item key="US" text="USA"/>
+									<core:Item key="IT" text="ITALY"/>
+									<core:Item key="UK" text="UK"/>
+									<core:Item key="IR" text="IRAN"/>
+									<core:Item key="CA" text="CANADA"/>
+								</items>
+							</MultiComboBox>
+							<Label text="Select Country" textDirection="RTL" design="Bold"/>
+							<MultiInput id="multiinput" width="250px">
+								<suggestionItems>
+									<core:Item key="IN" text="INDIA"/>
+									<core:Item key="CH" text="CHINA"/>
+									<core:Item key="US" text="USA"/>
+									<core:Item key="IT" text="ITALY"/>
+									<core:Item key="UK" text="UK"/>
+									<core:Item key="IR" text="IRAN"/>
+									<core:Item key="CA" text="CANADA"/>
+								</suggestionItems>
+							</MultiInput>
+							<Label text=""/>
+							<Button text="Submit Data" type="Accept" width="250px" press="submitdataEH"/>
+							<Button text="Edit Button" type="Reject" width="250px" press="editEH"/>
+						</form:SimpleForm>
+					</IconTabFilter>
+					<IconTabFilter text="Charts" iconColor="Negative" icon="sap-icon://accept">
+						<content>
+							<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" width="100%" vizType='column'>
+								<viz:dataset>
+									<viz.data:FlattenedDataset data="{/EMPSet}">
+										<viz.data:dimensions>
+											<viz.data:DimensionDefinition name="Firstname" value="{Firstname}"/>
+										</viz.data:dimensions>
+										<viz.data:measures>
+											<viz.data:MeasureDefinition name="Salary" value="{Salary}"/>
+										</viz.data:measures>
+									</viz.data:FlattenedDataset>
+								</viz:dataset>
+								<viz:feeds>
+									<viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure" values="Salary"/>
+									<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Firstname"/>
+								</viz:feeds>
+							</viz:VizFrame>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="NestedView" iconColor="Positive" icon="sap-icon://activities">
+						<content>
+							<mvc:XMLView viewName="demo.view.nestedView"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="2ndOData" iconColor="Negative" icon="sap-icon://cart-2">
+						<content>
+							<form:SimpleForm layout="ResponsiveGridLayout">
+								<Label text="Selected Userid" design="Bold" textDirection="RTL"/>
+								<Text text="{Userid}"/>
+								<Label text="Selected Firstname" design="Bold" textDirection="RTL"/>
+								<Text text="{Firstname}"/>
+								<Label text="Selected Lastname" design="Bold" textDirection="RTL"/>
+								<Text text="{Lastname}"/>
+								<Label text="Selected Emailid" design="Bold" textDirection="RTL"/>
+								<Text text="{Emailid}"/>
+								<Label text="Selected Country" design="Bold" textDirection="RTL"/>
+								<Text text="{Country}"/>
+								<Label text="Selected Salary" design="Bold" textDirection="RTL"/>
+								<Text text="{Salary}"/>
+								<Label text="Selected Phone" design="Bold" textDirection="RTL"/>
+								<Text text="{Phone}"/>
+							</form:SimpleForm>
+							<Table items="{ODATA2>/UserSet}" fixedLayout="false">
+								<columns>
+									<Column>
+										<Label text="Userid"/>
+									</Column>
+									<Column>
+										<Label text="Firstname"/>
+									</Column>
+									<Column>
+										<Label text="Lastname"/>
+									</Column>
+									<Column>
+										<Label text="Emailid"/>
+									</Column>
+									<Column>
+										<Label text="Country"/>
+									</Column>
+									<Column>
+										<Label text="Salary"/>
+									</Column>
+									<Column>
+										<Label text="Phone"/>
+									</Column>
+									<Column>
+										<Label text="Dateofbirth"/>
+									</Column>
+									<Column>
+										<Label text="Timeofjoining"/>
+									</Column>
+									<Column>
+										<Label text="Experience"/>
+									</Column>
+									<Column>
+										<Label text="Marital"/>
+									</Column>
+									<Column>
+										<Label text="Course"/>
+									</Column>
+									<Column>
+										<Label text="Age"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{ODATA2>Userid}"/>
+											<Text text="{ODATA2>Firstname}"/>
+											<Text text="{ODATA2>Lastname}"/>
+											<Text text="{ODATA2>Emailid}"/>
+											<Text text="{ODATA2>Country}"/>
+											<Text text="{ODATA2>Salary}"/>
+											<Text text="{ODATA2>Phone}"/>
+											<Text text="{ODATA2>Dateofbirth}"/>
+											<Text text="{ODATA2>Timeofjoining}"/>
+											<Text text="{ODATA2>Experience}"/>
+											<Text text="{ODATA2>Married}"/>
+											<Text text="{ODATA2>Course}"/>
+											<Text text="{ODATA2>Age}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="{objectView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
+	</semantic:FullscreenPage>
+</mvc:View>

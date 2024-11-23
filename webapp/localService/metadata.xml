@@ -1,0 +1,57 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="Z8AM_CRUD_ODATAPROJECT_SRV" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="EMP" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Userid"/>
+                </Key>
+                <Property Name="Userid" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="USERID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Firstname" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="FIRSTNAME" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lastname" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="LASTNAME" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Emailid" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="EMAILID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="COUNTRY" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Salary" Type="Edm.Int32" Nullable="false" sap:label="SALARY" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Phone" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="PHONE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="User" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Userid"/>
+                </Key>
+                <Property Name="Userid" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="USERID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Firstname" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="FIRSTNAME" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lastname" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="LASTNAME" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Emailid" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="EMAILID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Phone" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="PHONE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="COUNTRY" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Salary" Type="Edm.Int32" Nullable="false" sap:label="SALARY" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="File" m:HasStream="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Userid"/>
+                </Key>
+                <Property Name="Userid" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="DATAS" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sydate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="SYDATE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sytime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="SYTIME" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Filename" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="FILENAME" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Filetype" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="FILETYPE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Filecontent" Type="Edm.Binary" Nullable="false" sap:label="FILECONTENT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="Z8AM_CRUD_ODATAPROJECT_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="EMPSet" EntityType="Z8AM_CRUD_ODATAPROJECT_SRV.EMP" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="UserSet" EntityType="Z8AM_CRUD_ODATAPROJECT_SRV.User" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="FileSet" EntityType="Z8AM_CRUD_ODATAPROJECT_SRV.File" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <FunctionImport Name="GETEMPLOYEES" ReturnType="Collection(Z8AM_CRUD_ODATAPROJECT_SRV.EMP)" EntitySet="EMPSet" m:HttpMethod="GET">
+                    <Parameter Name="Country" Type="Edm.String" Mode="In"/>
+                </FunctionImport>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/Z8AM_CRUD_ODATAPROJECT_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/Z8AM_CRUD_ODATAPROJECT_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

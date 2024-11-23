@@ -1,0 +1,15 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="demo.controller.nestedview"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Nested View">
+				<content>
+					
+					<List items="{/EMPSet}" width="500px">
+						<StandardListItem title="{Userid}" description="{Firstname} {Lastname}" counter="{Salary}" info="{Emailid}"/>
+					</List>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

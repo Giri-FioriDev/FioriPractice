@@ -1,0 +1,44 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form" 
+	controllerName="demo.controller.thirdview" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Title" navButtonPress="onNavBack" showNavButton="true" >
+				<content>
+					<Button text="Insert Data" type="Accept" width="200px" press="insertdataEH"/>
+					<Button text="Update Data" type="Emphasized" width="200px" press="updatedataEH"/>
+					<Button text="Delete Data" type="Reject" width="200px" press="deletedataEH"/>
+					<form:SimpleForm title="Selected Record" layout="ResponsiveGridLayout">
+						<Label text="Selected Userid" design="Bold" textDirection="RTL"/>
+						<Input id="myuserid" value="{JSONMODEL>/Userid}" width="250px"/>
+						<Label text="Selected Firstname" design="Bold" textDirection="RTL"/>
+						<Input id="myfname" value="{JSONMODEL>/Firstname}" width="250px"/>
+						<Label text="Selected Lastname" design="Bold" textDirection="RTL"/>
+						<Input id="mylname" value="{JSONMODEL>/Lastname}" width="250px"/>
+						<Label text="Selected Emailid" design="Bold" textDirection="RTL"/>
+						<Input id="myemailid" value="{JSONMODEL>/Emailid}" width="250px"/>
+						<Label text="Selected Country" design="Bold" textDirection="RTL"/>
+						<Input id="mycountry" value="{JSONMODEL>/Country}" width="250px"/>
+						<Label text="Selected Salary" design="Bold" textDirection="RTL"/>
+						<Input id="mysalary" value="{JSONMODEL>/Salary}" width="250px"/>
+						<Label text="Selected Phone" design="Bold" textDirection="RTL"/>
+						<Input id="myphone" value="{JSONMODEL>/Phone}" width="250px"/>
+						<Label text="Selected Status" design="Bold" textDirection="RTL"/>
+						<Text text="{JSONMODEL>/Status}"/>
+						<Label text="Selected Image" design="Bold" textDirection="RTL"/>
+						<Image src="{JSONMODEL>/Image}" width="50px" height="50px"/>
+						<Label text="Selected CheckBox" design="Bold" textDirection="RTL"/>
+						<CheckBox selected="{JSONMODEL>/CheckBox}"/>
+						<Label text="Selected Switch" design="Bold" textDirection="RTL"/>
+						<Switch state="{JSONMODEL>/Switch}"/>
+						<Label text="Selected Rating" design="Bold" textDirection="RTL"/>
+						<RatingIndicator value="{JSONMODEL>/Rating}"/>
+						<Label text="Selected Progress" design="Bold" textDirection="RTL"/>
+						<ProgressIndicator percentValue="{JSONMODEL>/Progress}" width="250px"/>
+						<Label text="Selected Slider" design="Bold" textDirection="RTL"/>
+						<Slider value="{JSONMODEL>/Slider}" width="250px"/>
+					</form:SimpleForm>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -214,35 +214,46 @@
 					<IconTabFilter text="SimpleForm with Submit" iconColor="Default" icon="sap-icon://activity-items">
 						<form:SimpleForm layout="ResponsiveGridLayout">
 							<Label text="Company Logo" textDirection="RTL" design="Bold"/>
-							<Image id="image" src="/image1.png" height="50px" width="50px" visible="false"/>
+							<Image id="image" src="/image1.png" height="50px" width="50px" visible="true"/>
 							<Label text="Enter Userid" textDirection="RTL" design="Bold"/>
-							<Input id="userid" value="" width="250px" enabled="false"/>
+							<Input id="userid" value="" width="250px" enabled="true"/>
 							<Label text="Enter Firstname" textDirection="RTL" design="Bold"/>
-							<Input id="fname" value="" width="250px" enabled="false"/>
-							<Label text="Enter Lastname" textDirection="RTL" design="Bold"/>
-							<Input id="lname" value="" width="250px" enabled="false"/>
-							<Label text="Enter Emailid" textDirection="RTL" design="Bold"/>
-							<Input id="emailid" value="" width="250px" enabled="false"/>
-							<Label text="Enter Country" textDirection="RTL" design="Bold"/>
-							<Input id="country" value="" width="250px" enabled="false"/>
-							<Label text="Enter Salary" textDirection="RTL" design="Bold"/>
-							<Input id="salary" value="" width="250px" enabled="false"/>
+							<Label text="{i18n>fnamekey}" textDirection="RTL" design="Bold"/>
+							<Input id="fname" value="" width="250px" enabled="true" liveChange="fnamevalEH"/>
+							<Image id="imageindicator1" height="20px" width="20px" mode="Background"/>
+							<Text id="text1" text=""/>
+							<Label text="{i18n>lnamekey}" textDirection="RTL" design="Bold"/>
+							<Input id="lname" value="" width="250px" enabled="true" liveChange="lnamevalEH"/>
+							<Image id="imageindicator2" height="20px" width="20px" mode="Background"/>
+							<Text id="text2" text=""/>
+							<Label text="{i18n>emailidkey}" textDirection="RTL" design="Bold"/>
+							<Input id="emailid" value="" width="250px" enabled="true" liveChange="emailidvalEH"/>
+							<Image id="imageindicator3" height="20px" width="20px" mode="Background"/>
+							<Text id="text3" text=""/>
+							<Label text="{i18n>countrykey}" textDirection="RTL" design="Bold"/>
+							<Input id="country" value="" width="250px" enabled="true" liveChange="countryvalEH"/>
+							<Image id="imageindicator4" height="20px" width="20px" mode="Background"/>
+							<Text id="text4" text=""/>
+							<Label text="{i18n>salarykey}" textDirection="RTL" design="Bold"/>
+							<Input id="salary" value="" width="250px" enabled="true" liveChange="salaryvalEH"/>
+							<Image id="imageindicator5" height="20px" width="20px" mode="Background"/>
+							<Text id="text5" text=""/>
 							<Label text="Enter Mobile Number" textDirection="RTL" design="Bold"/>
-							<Input id="mobileno" value="" width="250px" enabled="false"/>
+							<Input id="mobileno" value="" width="250px" enabled="true" liveChange="mobilevalEH"/>
+							<Image id="imageindicator6" height="20px" width="20px" mode="Background"/>
+							<Text id="text6" text=""/>
 							<Label text="Enter Password" textDirection="RTL" design="Bold"/>
-							<Input id="password" value="" width="250px" type="Password" enabled="false"/>
-							<Label text="Are You Learning Fiori" textDirection="RTL" design="Bold"/>
-							<CheckBox id="checkbox" selected="false"/>
-							<Label text="Are You Permanent Emp" textDirection="RTL" design="Bold"/>
-							<Switch id="switch" state="true" customTextOn="YES" customTextOff="NO"/>
-							<Label text="Select Rating" textDirection="RTL" design="Bold"/>
-							<RatingIndicator id="rating" value="4" maxValue="5"/>
-							<Label text="Select Percentage" textDirection="RTL" design="Bold"/>
-							<Slider id="slider" value="80" min="0" max="100" width="250px"/>
-							<Label text="Display Percentage" textDirection="RTL" design="Bold"/>
-							<ProgressIndicator id="progress" percentValue="80" state="Success" width="250px"/>
-							<Label text="Select Date" textDirection="RTL" design="Bold"/>
+							<Input id="password" value="" width="250px" type="Password" enabled="true" liveChange="passwordvalEH"/>
+							<Image id="imageindicator7" height="20px" width="20px" mode="Background"/>
+							<Text id="text7" text=""/>
+							<Label text=""/>
+							<Text id="passwordtext"/>
+							<Label text="Select Start Date" textDirection="RTL" design="Bold"/>
 							<DatePicker id="datepicker" value="" width="250px"/>
+							<Label text="Select End Date" textDirection="RTL" design="Bold"/>
+							<DatePicker id="datepicker2" value="" width="250px" change="enddatevalEH"/>
+							<Image id="imageindicator8" height="20px" width="20px" mode="Background"/>
+							<Text id="text8" text=""/>
 							<Label text="Select Time" textDirection="RTL" design="Bold"/>
 							<TimePicker id="timepicker" value="" width="250px"/>
 							<Label text="Enter Comments" textDirection="RTL" design="Bold"/>
@@ -417,6 +428,283 @@
 									</ColumnListItem>
 								</items>
 							</Table>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="Layout" iconColor="Negative" icon="sap-icon://attachment">
+						<content>
+							<Panel expandable="true" headerText="HorizontalLayout" width="auto" class="sapUiResponsiveMargin">
+								<content>
+									<layout:HorizontalLayout>
+										<Label text="Enter Userid"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Firstname"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Lastname"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Emailid"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Country"/>
+										<Input value="" width="200px"/>
+										<Label text="Are you learning SAP FIORI"/>
+										<CheckBox selected="true"/>
+										<Label text="Are you learning SAP Ui5"/>
+										<Switch state="true"/>
+										<Label text="Select Rating"/>
+										<RatingIndicator value="4" maxValue="5"/>
+									</layout:HorizontalLayout>
+								</content>
+							</Panel>
+							<Panel expandable="true" headerText="VerticalLayout" width="auto" class="sapUiResponsiveMargin">
+								<content>
+									<layout:VerticalLayout>
+										<Label text="Enter Userid"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Firstname"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Lastname"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Emailid"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Country"/>
+										<Input value="" width="200px"/>
+										<Label text="Are you learning SAP FIORI"/>
+										<CheckBox selected="true"/>
+										<Label text="Are you learning SAP Ui5"/>
+										<Switch state="true"/>
+										<Label text="Select Rating"/>
+										<RatingIndicator value="4" maxValue="5"/>
+									</layout:VerticalLayout>
+								</content>
+							</Panel>
+							<Panel expandable="true" headerText="GridLayout" width="auto" class="sapUiResponsiveMargin">
+								<content>
+									<layout:Grid>
+										<Label text="Enter Userid"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Firstname"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Lastname"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Emailid"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Country"/>
+										<Input value="" width="200px"/>
+										<Label text="Are you learning SAP FIORI"/>
+										<CheckBox selected="true"/>
+										<Label text="Are you learning SAP Ui5"/>
+										<Switch state="true"/>
+										<Label text="Select Rating"/>
+										<RatingIndicator value="4" maxValue="5"/>
+									</layout:Grid>
+								</content>
+							</Panel>
+							<Panel expandable="true" headerText="Layout inside Another Layout" width="auto" class="sapUiResponsiveMargin">
+								<content>
+									<!---Layout inside Another Layout-->
+									<layout:HorizontalLayout>
+										<form:SimpleForm title="SimpleForm 1" width="600px">
+											<Label text="Enter Userid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Firstname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Lastname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Emailid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Country" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Are you learning SAP FIORI" textDirection="RTL" design="Bold"/>
+											<CheckBox selected="true"/>
+											<Label text="Are you learning SAP Ui5" textDirection="RTL" design="Bold"/>
+											<Switch state="true"/>
+											<Label text="Select Rating" textDirection="RTL" design="Bold"/>
+											<RatingIndicator value="4" maxValue="5"/>
+										</form:SimpleForm>
+										<form:SimpleForm title="SimpleForm 2" width="600px">
+											<Label text="Enter Userid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Firstname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Lastname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Emailid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Country" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Are you learning SAP FIORI" textDirection="RTL" design="Bold"/>
+											<CheckBox selected="true"/>
+											<Label text="Are you learning SAP Ui5" textDirection="RTL" design="Bold"/>
+											<Switch state="true"/>
+											<Label text="Select Rating" textDirection="RTL" design="Bold"/>
+											<RatingIndicator value="4" maxValue="5"/>
+										</form:SimpleForm>
+									</layout:HorizontalLayout>
+								</content>
+							</Panel>
+							<Panel expandable="true" headerText="Combined Layouts" width="auto" class="sapUiResponsiveMargin">
+								<content>
+									<layout:VerticalLayout>
+										<form:SimpleForm title="SimpleForm 1" width="600px">
+											<Label text="Enter Userid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Firstname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Lastname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Emailid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Country" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Are you learning SAP FIORI" textDirection="RTL" design="Bold"/>
+											<CheckBox selected="true"/>
+											<Label text="Are you learning SAP Ui5" textDirection="RTL" design="Bold"/>
+											<Switch state="true"/>
+											<Label text="Select Rating" textDirection="RTL" design="Bold"/>
+											<RatingIndicator value="4" maxValue="5"/>
+										</form:SimpleForm>
+										<form:SimpleForm title="SimpleForm 2" width="600px">
+											<Label text="Enter Userid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Firstname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Lastname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Emailid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Country" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Are you learning SAP FIORI" textDirection="RTL" design="Bold"/>
+											<CheckBox selected="true"/>
+											<Label text="Are you learning SAP Ui5" textDirection="RTL" design="Bold"/>
+											<Switch state="true"/>
+											<Label text="Select Rating" textDirection="RTL" design="Bold"/>
+											<RatingIndicator value="4" maxValue="5"/>
+										</form:SimpleForm>
+									</layout:VerticalLayout>
+								</content>
+							</Panel>
+							<Panel expandable="true" headerText="Splitter Layout" width="auto" class="sapUiResponsiveMargin">
+								<content>
+									<layout:Splitter orientation="Horizontal">
+										<form:SimpleForm title="SimpleForm 1" width="600px">
+											<Label text="Enter Userid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Firstname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Lastname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Emailid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Country" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Are you learning SAP FIORI" textDirection="RTL" design="Bold"/>
+											<CheckBox selected="true"/>
+											<Label text="Are you learning SAP Ui5" textDirection="RTL" design="Bold"/>
+											<Switch state="true"/>
+											<Label text="Select Rating" textDirection="RTL" design="Bold"/>
+											<RatingIndicator value="4" maxValue="5"/>
+										</form:SimpleForm>
+										<form:SimpleForm title="SimpleForm 2" width="600px">
+											<Label text="Enter Userid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Firstname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Lastname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Emailid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Enter Country" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px"/>
+											<Label text="Are you learning SAP FIORI" textDirection="RTL" design="Bold"/>
+											<CheckBox selected="true"/>
+											<Label text="Are you learning SAP Ui5" textDirection="RTL" design="Bold"/>
+											<Switch state="true"/>
+											<Label text="Select Rating" textDirection="RTL" design="Bold"/>
+											<RatingIndicator value="4" maxValue="5"/>
+										</form:SimpleForm>
+									</layout:Splitter>
+								</content>
+							</Panel>
+							<Panel expandable="true" headerText="Flexbox Layout" width="auto" class="sapUiResponsiveMargin">
+								<content>
+									<FlexBox alignItems="Center" direction="Column">
+										<Label text="Enter Userid" textDirection="RTL" design="Bold"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Firstname" textDirection="RTL" design="Bold"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Lastname" textDirection="RTL" design="Bold"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Emailid" textDirection="RTL" design="Bold"/>
+										<Input value="" width="200px"/>
+										<Label text="Enter Country" textDirection="RTL" design="Bold"/>
+										<Input value="" width="200px"/>
+										<Label text="Are you learning SAP FIORI" textDirection="RTL" design="Bold"/>
+										<CheckBox selected="true"/>
+										<Label text="Are you learning SAP Ui5" textDirection="RTL" design="Bold"/>
+										<Switch state="true"/>
+										<Label text="Select Rating" textDirection="RTL" design="Bold"/>
+										<RatingIndicator value="4" maxValue="5"/>
+									</FlexBox>
+								</content>
+							</Panel>
+							<Panel expandable="true" headerText="Layout inside another Layout" width="auto" class="sapUiResponsiveMargin">
+								<content>
+									<layout:HorizontalLayout>
+										<layout:VerticalLayout width="400px">
+											<Label text="Enter Userid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px" textAlign="Center"/>
+											<Label text="Enter Firstname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px" textAlign="Center"/>
+											<Label text="Enter Lastname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px" textAlign="Center"/>
+											<Label text="Enter Emailid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px" textAlign="Center"/>
+											<Label text="Enter Country" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px" textAlign="Center"/>
+											<Label text="Are you learning SAP FIORI" textDirection="RTL" design="Bold"/>
+											<CheckBox selected="true"/>
+											<Label text="Are you learning SAP Ui5" textDirection="RTL" design="Bold"/>
+											<Switch state="true"/>
+											<Label text="Select Rating" textDirection="RTL" design="Bold"/>
+											<RatingIndicator value="4" maxValue="5"/>
+										</layout:VerticalLayout>
+										<layout:VerticalLayout width="400px">
+											<Label text="Enter Userid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px" textAlign="Center"/>
+											<Label text="Enter Firstname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px" textAlign="Center"/>
+											<Label text="Enter Lastname" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px" textAlign="Center"/>
+											<Label text="Enter Emailid" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px" textAlign="Center"/>
+											<Label text="Enter Country" textDirection="RTL" design="Bold"/>
+											<Input value="" width="200px" textAlign="Center"/>
+											<Label text="Are you learning SAP FIORI" textDirection="RTL" design="Bold"/>
+											<CheckBox selected="true"/>
+											<Label text="Are you learning SAP Ui5" textDirection="RTL" design="Bold"/>
+											<Switch state="true"/>
+											<Label text="Select Rating" textDirection="RTL" design="Bold"/>
+											<RatingIndicator value="4" maxValue="5"/>
+										</layout:VerticalLayout>
+									</layout:HorizontalLayout>
+								</content>
+							</Panel>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="FileConcept" iconColor="Negative" icon="sap-icon://badge">
+						<content>
+							<form:SimpleForm title="InputForm" layout="ResponsiveGridLayout">
+								<Label text="Enter Userid"/>
+								<Input id="useridinputse" value="" width="200px"/>
+								<Label text="Upload Your File"/>
+								<unified:FileUploader id="fileuploaderse" sendXHR="true" useMultipart="false" uploadOnChange="true" uploadComplete="uploadcompleteEH"
+									width="275px"/>
+								<Label text=""/>
+								<Button text="File Upload" type="Accept" width="200px" press="fileuploadEH"/>
+								<Button text="File Download" type="Reject" width="200px" press="filedownloadEH"/>
+								<Button text="File Preview" type="Emphasized" width="200px" press="filepreviewEH"/>
+							</form:SimpleForm>
+							<form:SimpleForm title="FilePreview" id="myform" layout="ResponsiveGridLayout"></form:SimpleForm>
 						</content>
 					</IconTabFilter>
 				</items>

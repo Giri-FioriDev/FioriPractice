@@ -1,9 +1,54 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="demo.controller.fourthview"
-	xmlns:html="http://www.w3.org/1999/xhtml">
+<mvc:View xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="demo.controller.fourthview" xmlns:html="http://www.w3.org/1999/xhtml">
 	<App>
 		<pages>
 			<Page title="Title">
-				<content><Text text="Welcome to Fourth View"/></content>
+				<content>
+					<form:SimpleForm title="New Header Record" layout="ResponsiveGridLayout">
+						<Label text="Enter Userid" textDirection="RTL" design="Bold"/>
+						<Input id="myuserid" value="" width="200px"/>
+						<Label text="Enter Firstname" textDirection="RTL" design="Bold"/>
+						<Input id="myfname" value="" width="200px"/>
+						<Label text="Enter Lastname" textDirection="RTL" design="Bold"/>
+						<Input id="mylname" value="" width="200px"/>
+						<Label text="Enter Emailid" textDirection="RTL" design="Bold"/>
+						<Input id="myemailid" value="" width="200px"/>
+						<Label text="Enter Country" textDirection="RTL" design="Bold"/>
+						<Input id="mycountry" value="" width="200px"/>
+						<Label text="Enter Salary" textDirection="RTL" design="Bold"/>
+						<Input id="mysalary" value="" width="200px"/>
+						<Label text="Enter Phone Number" textDirection="RTL" design="Bold"/>
+						<Input id="myphone" value="" width="200px"/>
+					</form:SimpleForm>
+					<Table id="myitemstable" items="{/data}" headerText="New Item Records" width="800px" fixedLayout="false">
+						<columns>
+							<Column>
+								<Label text="Userid" design="Bold"/>
+							</Column>
+							<Column>
+								<Label text="ProductID" design="Bold"/>
+							</Column>
+							<Column>
+								<Label text="ProductName" design="Bold"/>
+							</Column>
+							<Column>
+								<Label text="ProductPrice" design="Bold"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Input value="{Userid}"/>
+									<Input value="{Productid}"/>
+									<Input value="{Productname}"/>
+									<Input value="{Productprice}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+					<Label text=""/>
+					<Button text="Insert Header + Items" type="Accept" width="250px" press="insertheaderitemsEH"/>
+				</content>
 			</Page>
 		</pages>
 	</App>

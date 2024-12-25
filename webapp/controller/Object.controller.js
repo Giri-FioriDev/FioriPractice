@@ -326,6 +326,235 @@ sap.ui.define([
 
 			this.gotothirdviewEH();
 
+		},
+
+		fnamevalEH: function() {
+
+			var fname = this.getView().byId("fname").getValue();
+
+			if (fname.length > 5 && fname.length < 12) {
+				this.getView().byId("imageindicator1").setSrc("/greencolor.gif");
+				this.getView().byId("text1").setText("Firstname is Valid");
+
+			} else {
+
+				this.getView().byId("imageindicator1").setSrc("/redcolor.gif");
+				this.getView().byId("text1").setText("Firstname is Not Valid");
+
+			}
+
+		},
+
+		lnamevalEH: function() {
+
+			var lname = this.getView().byId("lname").getValue();
+
+			var regexpression = /^[A-Za-z]+$/;
+
+			if (lname.match(regexpression)) {
+				this.getView().byId("imageindicator2").setSrc("/greencolor.gif");
+				this.getView().byId("text2").setText("Lastname is Valid");
+
+			} else {
+
+				this.getView().byId("imageindicator2").setSrc("/redcolor.gif");
+				this.getView().byId("text2").setText("Lastname is Not Valid");
+
+			}
+
+		},
+		emailidvalEH: function() {
+			var emailid = this.getView().byId("emailid").getValue();
+
+			var atposition = emailid.indexOf("@");
+			var dotposition = emailid.lastIndexOf(".");
+
+			if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= emailid.length) {
+
+				this.getView().byId("imageindicator3").setSrc("/redcolor.gif");
+				this.getView().byId("text3").setText("Emailid is Not Valid");
+
+			} else {
+
+				this.getView().byId("imageindicator3").setSrc("/greencolor.gif");
+				this.getView().byId("text3").setText("Emailid is Valid");
+
+			}
+
+		},
+
+		countryvalEH: function() {
+			var country = this.getView().byId("country").getValue();
+
+			if (country === "INDIA" || country === "US") {
+				this.getView().byId("imageindicator4").setSrc("/greencolor.gif");
+				this.getView().byId("text4").setText("Country is Valid");
+
+			} else {
+
+				this.getView().byId("imageindicator4").setSrc("/redcolor.gif");
+				this.getView().byId("text4").setText("Country is Not Valid");
+
+			}
+
+		},
+
+		salaryvalEH: function() {
+
+			var salary = this.getView().byId("salary").getValue();
+
+			if (isNaN(salary)) {
+				this.getView().byId("imageindicator5").setSrc("/redcolor.gif");
+				this.getView().byId("text5").setText("Salary is Not Valid");
+
+			} else {
+
+				this.getView().byId("imageindicator5").setSrc("/greencolor.gif");
+				this.getView().byId("text5").setText("Salary is Valid");
+
+			}
+
+		},
+
+		mobilevalEH: function() {
+			var mobileno = this.getView().byId("mobileno").getValue();
+
+			var regexpression = /^\d{10}$/;
+
+			if (mobileno.match(regexpression)) {
+
+				this.getView().byId("imageindicator6").setSrc("/greencolor.gif");
+				this.getView().byId("text6").setText("Mobile Number is Valid");
+
+			} else {
+
+				this.getView().byId("imageindicator6").setSrc("/redcolor.gif");
+				this.getView().byId("text6").setText("Mobile Number is Not Valid");
+
+			}
+
+		},
+
+		passwordvalEH: function() {
+
+			var password = this.getView().byId("password").getValue();
+
+			var regexpression = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%&*]).{6,12}$/;
+
+			if (password.match(regexpression)) {
+
+				this.getView().byId("imageindicator7").setSrc("/greencolor.gif");
+				this.getView().byId("text7").setText("Password is Valid");
+
+			} else {
+
+				this.getView().byId("imageindicator7").setSrc("/redcolor.gif");
+				this.getView().byId("text7").setText("Password is Not Valid");
+
+			}
+
+			this.getView().byId("passwordtext").setText(password);
+
+		},
+
+		enddatevalEH: function() {
+			var startdate = this.getView().byId("datepicker").getValue();
+			var enddate = this.getView().byId("datepicker2").getValue();
+
+			if (Date.parse(enddate) > Date.parse(startdate)) {
+
+				this.getView().byId("imageindicator8").setSrc("/greencolor.gif");
+				this.getView().byId("text8").setText("End Date is Valid");
+
+			} else {
+
+				this.getView().byId("imageindicator8").setSrc("/redcolor.gif");
+				this.getView().byId("text8").setText("End Date is Not Valid");
+
+			}
+
+		},
+
+		uploadcompleteEH: function(oEvent) {
+			var response = oEvent.getParameter("response");
+
+			if (response) {
+				sap.m.MessageBox.success("File Uploaded Successfully");
+
+			}
+
+		},
+		fileuploadEH: function() {
+			//refresh Security Token
+			//Capture Userid input from InputField
+			//Get The Reference of FileUploader ScreenElement
+			//Create Object for FileUploaderParameter Class & set FileName
+			//Create Object for FileUploaderParameter Class  & Set CSRF Token
+			//Add FileUploaderParameter1, Add FileUploaderParameter2 to FileUploader 
+			//on FileUploader, use setUploadUrl( ) Method & Provide OdataServiceURL
+			//on FileUploader, use upload( ) method & To Start FileUpload Process by Executing Create_Stream( )Method
+
+			this.getOwnerComponent().getModel().refreshSecurityToken();
+
+			var useridinput = this.getView().byId("useridinputse").getValue();
+
+			var fileuploader = this.getView().byId("fileuploaderse");
+
+			var fileuploaderparameter1 = new sap.ui.unified.FileUploaderParameter({
+				name: "slug",
+				value: fileuploader.getValue()
+			});
+
+			var fileuploaderparameter2 = new sap.ui.unified.FileUploaderParameter({
+				name: "x-csrf-token",
+				value: this.getOwnerComponent().getModel().getHeaders()['x-csrf-token']
+			});
+
+			fileuploader.addHeaderParameter(fileuploaderparameter1);
+			fileuploader.addHeaderParameter(fileuploaderparameter2);
+
+			fileuploader.setUploadUrl("/sap/opu/odata/SAP/ZNEWFILESPROJECT_SRV/UserSet('" + useridinput + "')/NP_ON_USERID");
+
+			fileuploader.upload();
+
+		},
+		filedownloadEH: function() {
+
+			//Capture Userid Input from Input Field
+			//Construct OData Service URL
+			//Use URLHelperClass with redirect method and pass ODataService FileContent URL
+
+			var useridinput = this.getView().byId("useridinputse").getValue();
+
+			var filecontentsurl = "/sap/opu/odata/SAP/ZNEWFILESPROJECT_SRV/FileSet('" + useridinput + "')/$value";
+
+			sap.m.URLHelper.redirect(filecontentsurl, true);
+		},
+
+		filepreviewEH: function() {
+			//capture Userid Input From Input Field
+			//Get The Reference of SimpleForm container for FilePreview
+			//Create ODataModel for ODataModel Class & provide ODataService URL
+			//on ODataModel, use read( ) method To Execute Get_Stream( ) Method of OData Service
+
+			var useridinput = this.getView().byId("useridinputse").getValue();
+
+			var myform = this.getView().byId("myform");
+
+			var odatamodel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/SAP/ZNEWFILESPROJECT_SRV/");
+
+			odatamodel.read("/FileSet('" + useridinput + "')/$value", null, null, true,
+
+				function(oData, oResponse) {
+					var filecontenturl = oResponse.requestUri;
+
+					var htmlo = new sap.ui.core.HTML();
+
+					htmlo.setContent("<IFrame src=" + filecontenturl + " width='450px'  height='450px'/>");
+
+					myform.addContent(htmlo);
+				});
+
 		}
 
 	});
